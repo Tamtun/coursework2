@@ -27,8 +27,8 @@ def test_convert_salary():
     v3 = Vacancy("Dev3", "https://example.com/3", None, "Тест")
 
     assert v1._convert_salary() == 90000
-    assert v2._convert_salary() == 120000  # Берём `from`, а не `to`
-    assert v3._convert_salary() == 0  # Если зарплата `None`, то 0
+    assert v2._convert_salary() == 120000
+    assert v3._convert_salary() == 0
 
 
 def test_repr():
@@ -43,8 +43,8 @@ def test_equality():
     v2 = Vacancy("Dev2", "https://example.com/2", "90000", "Тест")
     v3 = Vacancy("Dev3", "https://example.com/3", None, "Тест")
 
-    assert v1 == v2  # Одинаковая зарплата → вакансии равны
-    assert v3 < v1  # `None` → считается 0, значит меньше
+    assert v1 == v2
+    assert v3 < v1
 
 
 if __name__ == "__main__":

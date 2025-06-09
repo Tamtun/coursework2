@@ -1,5 +1,6 @@
 class Vacancy:
     """Класс для представления вакансии."""
+
     __slots__ = ("title", "link", "salary", "description")
 
     def __init__(self, title: str, link: str, salary: str, description: str):

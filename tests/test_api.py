@@ -3,7 +3,6 @@ from unittest.mock import patch
 from src.api.hh_api import HHAPI
 
 
-
 @pytest.fixture
 def hh_api():
     """Фикстура для работы с HHAPI."""

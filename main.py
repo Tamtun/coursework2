@@ -2,6 +2,7 @@ from src.api.hh_api import HHAPI  # Исправлен импорт
 from src.models.vacancy import Vacancy
 from src.storage.json_saver import JsonSaver  # Исправлен импорт
 
+
 def user_interaction():
     """Функция для взаимодействия с пользователем."""
     hh_api = HHAPI()  # Исправлено название класса
@@ -12,13 +13,20 @@ def user_interaction():
         search_query = input("Введите поисковый запрос: ")
         vacancies_data = hh_api.get_vacancies(search_query)
 
-        # Преобразуем данные в объекты Vacancy
         vacancies = [
             Vacancy(
                 v["name"],
                 v["alternate_url"],
-                v["salary"]["from"] if v.get("salary") and v["salary"].get("from") else "Зарплата не указана",
-                v["snippet"]["requirement"] if v.get("snippet") and v["snippet"].get("requirement") else "Нет требований",
+                (
+                    v["salary"]["from"]
+                    if v.get("salary") and v["salary"].get("from")
+                    else "Зарплата не указана"
+                ),
+                (
+                    v["snippet"]["requirement"]
+                    if v.get("snippet") and v["snippet"].get("requirement")
+                    else "Нет требований"
+                ),
             )
             for v in vacancies_data
         ]
@@ -58,6 +66,7 @@ def user_interaction():
         json_saver.add_vacancy(vacancy)
 
     print("\nВакансии успешно сохранены!")
+
 
 if __name__ == "__main__":
     user_interaction()

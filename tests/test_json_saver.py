@@ -5,7 +5,6 @@ from src.models.vacancy import Vacancy
 from src.storage.json_saver import JsonSaver
 
 
-
 @pytest.fixture
 def json_saver():
     """Фикстура для тестирования JsonSaver (используем временный файл)."""

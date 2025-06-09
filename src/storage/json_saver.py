@@ -1,12 +1,13 @@
 import json
 from src.storage.abstract_storage import AbstractStorage
-from src.models.vacancy import Vacancy  # Импортируем класс Vacancy
+from src.models.vacancy import Vacancy
+
 
 class JsonSaver(AbstractStorage):
     """Класс для работы с JSON-файлами."""
 
     def __init__(self, filename="vacancies.json"):
-        self._filename = filename  # Сделали имя файла приватным
+        self._filename = filename
 
     def get_data(self):
         """Получение данных из файла."""
@@ -37,12 +38,14 @@ class JsonSaver(AbstractStorage):
 
         # Проверяем, нет ли уже такой вакансии (по ссылке)
         if not any(v["link"] == vacancy.link for v in vacancies):
-            vacancies.append({
-                "title": vacancy.title,
-                "link": vacancy.link,
-                "salary": vacancy.salary,
-                "description": vacancy.description,
-            })
+            vacancies.append(
+                {
+                    "title": vacancy.title,
+                    "link": vacancy.link,
+                    "salary": vacancy.salary,
+                    "description": vacancy.description,
+                }
+            )
 
         with open(self._filename, "w", encoding="utf-8") as file:
             json.dump(vacancies, file, indent=4)
