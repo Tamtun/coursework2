@@ -1,12 +1,13 @@
 import pytest
 from unittest.mock import patch
-from src.api.hh_api import HeadHunterAPI
+from src.api.hh_api import HHAPI
+
 
 
 @pytest.fixture
 def hh_api():
-    """Фикстура для работы с HeadHunterAPI."""
-    return HeadHunterAPI()
+    """Фикстура для работы с HHAPI."""
+    return HHAPI()
 
 
 @patch("requests.get")

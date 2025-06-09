@@ -2,13 +2,14 @@ import pytest
 import json
 import os
 from src.models.vacancy import Vacancy
-from src.storage.json_saver import JSONSaver
+from src.storage.json_saver import JsonSaver
+
 
 
 @pytest.fixture
 def json_saver():
-    """Фикстура для тестирования JSONSaver (используем временный файл)."""
-    return JSONSaver("tests/temp_vacancies.json")
+    """Фикстура для тестирования JsonSaver (используем временный файл)."""
+    return JsonSaver("tests/temp_vacancies.json")
 
 
 @pytest.fixture(scope="function", autouse=True)
