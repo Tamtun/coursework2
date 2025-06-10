@@ -1,11 +1,11 @@
-from src.api.hh_api import HHAPI  # Исправлен импорт
+from src.api.hh_api import HHAPI
 from src.models.vacancy import Vacancy
-from src.storage.json_saver import JsonSaver  # Исправлен импорт
+from src.storage.json_saver import JsonSaver
 
 
 def user_interaction():
     """Функция для взаимодействия с пользователем."""
-    hh_api = HHAPI()  # Исправлено название класса
+    hh_api = HHAPI()
     json_saver = JsonSaver()
 
     try:

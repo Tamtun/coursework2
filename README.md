@@ -10,23 +10,26 @@
 Coursework2/
 ├── src/                    # Основной код проекта
 │   ├── api/                # Работа с API HH.ru
-│   │   ├── hh_api.py       # Запросы к HH.ru
+│   │   ├── abstract_api.py  # Абстрактный класс для работы с API
+│   │   ├── hh_api.py       # Запросы к HH.ru, наследует AbstractAPI
 │   │   ├── vacancy_api.py  # Обработчик данных вакансий
 │   ├── models/             # Описание моделей данных
-│   │   ├── vacancy.py      # Класс Vacancy
+│   │   ├── vacancy.py      # Класс Vacancy (__slots__, методы сравнения)
 │   ├── storage/            # Работа с сохранением данных
-│   │   ├── json_saver.py   # Сохранение вакансий в JSON
+│   │   ├── abstract_storage.py  # Абстрактный класс для хранения данных
+│   │   ├── json_saver.py   # Сохранение вакансий в JSON, наследует AbstractStorage
 ├── tests/                  # Тесты
 │   ├── test_api.py         # Проверка API HH.ru
 │   ├── test_json_saver.py  # Тесты сохранения JSON
 │   ├── test_vacancy.py     # Проверка модели Vacancy
+│   ├── test_vacancy_api.py # Проверка обработчика вакансий
 ├── data/                   # Данные вакансий
 │   ├── vacancies.json      # Сохранённые вакансии
 ├── .gitignore              # Игнорируемые файлы для Git
 ├── README.md               # Документация проекта
 ├── requirements.txt        # Зависимости проекта
 ├── pyproject.toml          # Конфигурация проекта (если используется Poetry)
-├── main.py                 # Главный файл запуска
+├── main.py                 # Главный файл запуска (взаимодействие с пользователем)
 ```
 
 
